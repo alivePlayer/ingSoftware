@@ -3,12 +3,12 @@ package is.shapes.concreteCommand;
 import is.command.Command;
 import is.shapes.model.GraphicObject;
 
-public class ZoomCommand implements Command {
+public class ZoomConcreteCommand implements Command {
 	
 	private final GraphicObject object;
 	private final double factor;
 
-	public ZoomCommand(GraphicObject obj, double factor) {
+	public ZoomConcreteCommand(GraphicObject obj, double factor) {
 		object = obj;
 		this.factor = factor;
 		

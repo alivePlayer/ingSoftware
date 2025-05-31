@@ -5,7 +5,7 @@ import is.shapes.model.GraphicObject;
 
 import java.awt.geom.Point2D;
 
-public class MoveCommand implements Command {
+public class MoveConcreteCommand implements Command {
 
 	private  final Point2D oldPos;
 
@@ -13,7 +13,7 @@ public class MoveCommand implements Command {
 
 	private  final GraphicObject object;
 	
-	public MoveCommand(GraphicObject go, Point2D pos) {
+	public MoveConcreteCommand(GraphicObject go, Point2D pos) {
 		oldPos = go.getPosition();
 		newPos = pos;
 		this.object = go;
