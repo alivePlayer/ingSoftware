@@ -1,15 +1,15 @@
-package is.shapes.specificcommand;
+package is.shapes.concreteCommand;
 
 import is.command.Command;
 import is.shapes.model.GraphicObject;
-import is.shapes.view.GraphicObjectPanel;
+import is.shapes.view.GraphicObjectPanelReceiver;
 
-public class NewObjectCmd implements Command {
+public class NewObjectConcreteCommand implements Command {
 
-	private final GraphicObjectPanel panel;
+	private final GraphicObjectPanelReceiver panel;
 	private final GraphicObject go;
 
-	public NewObjectCmd(GraphicObjectPanel panel, GraphicObject go) {
+	public NewObjectConcreteCommand(GraphicObjectPanelReceiver panel, GraphicObject go) {
 		
 		this.panel = panel;
 		this.go = go;

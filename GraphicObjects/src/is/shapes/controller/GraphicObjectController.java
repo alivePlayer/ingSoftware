@@ -2,8 +2,8 @@ package is.shapes.controller;
 
 import is.command.CommandHandler;
 import is.shapes.model.GraphicObject;
-import is.shapes.specificcommand.MoveCommand;
-import is.shapes.specificcommand.ZoomCommand;
+import is.shapes.concreteCommand.MoveCommand;
+import is.shapes.concreteCommand.ZoomCommand;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

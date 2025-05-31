@@ -9,14 +9,12 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import javax.swing.JComponent;
 
-public class GraphicObjectPanel extends JComponent implements GraphicObjectListener {
+public class GraphicObjectPanelReceiver extends JComponent implements GraphicObjectListener {
 
 	/**
 	 * 
@@ -30,7 +28,7 @@ public class GraphicObjectPanel extends JComponent implements GraphicObjectListe
 	private final List<GraphicObject> objects = new LinkedList<>();
 
 
-	public GraphicObjectPanel() {
+	public GraphicObjectPanelReceiver() {
 		setBackground(Color.WHITE);
 	}
 

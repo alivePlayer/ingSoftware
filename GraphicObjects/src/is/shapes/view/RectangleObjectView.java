@@ -8,6 +8,7 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
 public class RectangleObjectView implements GraphicObjectView {
+	//per implementare il factory devo creare il concreate Creator visto che questo è un concreteProduct controllare se abstract Factory
 	@Override
 	public void drawGraphicObject(GraphicObject go, Graphics2D g) {
 		Point2D position = go.getPosition();

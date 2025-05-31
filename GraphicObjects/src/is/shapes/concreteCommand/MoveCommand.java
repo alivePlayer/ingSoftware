@@ -1,4 +1,4 @@
-package is.shapes.specificcommand;
+package is.shapes.concreteCommand;
 
 import is.command.Command;
 import is.shapes.model.GraphicObject;
