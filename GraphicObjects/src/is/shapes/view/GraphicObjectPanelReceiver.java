@@ -85,8 +85,8 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 
 	public void remove(GraphicObject go) {
 		if (objects.remove(go)) {
-			repaint();
 			go.removeGraphicObjectListener(this);
+			repaint();
 		}
 
 	}

@@ -28,6 +28,8 @@ public class GraphicObjectController extends JPanel {
 
 	private final JPanel zoom;
 
+	//private final JPanel delete;
+
 	static final int offset = 10;
 
 	static final double zoom_factor = 0.1;
@@ -39,6 +41,7 @@ public class GraphicObjectController extends JPanel {
 	public GraphicObjectController(CommandHandler cmdH) {
 		this(null, cmdH);
 	}
+	public GraphicObject getSubject(){return subject;}
 
 	public GraphicObjectController(GraphicObject go, CommandHandler cmdH) {
 		cmdHandler = cmdH;

@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JToolBar;
 
 import is.command.HistoryCommandHandlerInvoker;
+import is.shapes.concreteCommand.DeleteConcreteCommand;
 import is.shapes.controller.GraphicObjectController;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.CircleObject;
@@ -50,7 +51,13 @@ public class TestGraphics2 {
 		GraphicObjectViewFactory.FACTORY.installView(CircleObject.class, new CircleObjectView());
 		GraphicObjectViewFactory.FACTORY.installView(ImageObject.class, new ImageObjectView());
 
+
 		AbstractGraphicObject go = new RectangleObject(new Point(180, 80), 20, 50);
+
+		JButton deleteButton = new JButton(new DeleteObjectAction(go,gpanel,handler));
+		deleteButton.setText("Delete");
+		toolbar.add(deleteButton);
+
 
 		JButton rectButton = new JButton(new CreateObjectAction(go, gpanel, handler));
 		rectButton.setText(go.getType());
@@ -81,8 +88,11 @@ public class TestGraphics2 {
 			public void mouseClicked(MouseEvent e) {
 
 				goc.setControlledObject(gpanel.getGraphicObjectAt(e.getPoint()));
+				System.out.println(("0: " + goc.getSubject()));
 			}
 		});
+		deleteButton.addActionListener(evt -> gpanel.remove(goc.getSubject()));
+
 
 		f.add(toolbar, BorderLayout.NORTH);
 		f.add(new JScrollPane(gpanel), BorderLayout.CENTER);

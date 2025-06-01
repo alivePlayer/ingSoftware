@@ -1,13 +1,11 @@
 package is.command;
 
+import is.shapes.concreteCommand.DeleteConcreteCommand;
+import is.shapes.model.GraphicObject;
+
 import java.util.LinkedList;
 
 public class HistoryCommandHandlerInvoker implements CommandHandler {
-
-
-
-
-
 
 	private int maxHistoryLength = 100;
 
