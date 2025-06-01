@@ -7,8 +7,11 @@ import is.shapes.model.GraphicObject;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.io.Serial;
 
 public class DeleteObjectAction extends AbstractAction {
+    @Serial
+    private static final long serialVersionUID = 254953548601413011L;
     AbstractGraphicObject prototype;
     GraphicObjectPanelReceiver panel;
     CommandHandler ch;

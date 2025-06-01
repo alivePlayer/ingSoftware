@@ -47,6 +47,7 @@ public class TestGraphics {
 		GraphicObjectViewFactory.FACTORY.installView(CircleObject.class, new CircleObjectView());
 		GraphicObjectViewFactory.FACTORY.installView(ImageObject.class, new ImageObjectView());
 
+
 		GraphicObject go = new RectangleObject(new Point(80, 80), 20, 50);
 		gpanel.add(go);
 		go.addGraphicObjectListener(logger);
@@ -70,6 +71,8 @@ public class TestGraphics {
 		controlPanel.add(goc1);
 		controlPanel.add(goc2);
 		controlPanel.add(goc3);
+
+
 
 		f.getContentPane().add(new JScrollPane(controlPanel), BorderLayout.SOUTH);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

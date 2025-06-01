@@ -17,10 +17,7 @@ import javax.swing.JToolBar;
 import is.command.HistoryCommandHandlerInvoker;
 import is.shapes.concreteCommand.DeleteConcreteCommand;
 import is.shapes.controller.GraphicObjectController;
-import is.shapes.model.AbstractGraphicObject;
-import is.shapes.model.CircleObject;
-import is.shapes.model.ImageObject;
-import is.shapes.model.RectangleObject;
+import is.shapes.model.*;
 import is.shapes.view.*;
 
 public class TestGraphics2 {
@@ -54,10 +51,6 @@ public class TestGraphics2 {
 
 		AbstractGraphicObject go = new RectangleObject(new Point(180, 80), 20, 50);
 
-		JButton deleteButton = new JButton(new DeleteObjectAction(go,gpanel,handler));
-		deleteButton.setText("Delete");
-		toolbar.add(deleteButton);
-
 
 		JButton rectButton = new JButton(new CreateObjectAction(go, gpanel, handler));
 		rectButton.setText(go.getType());
@@ -82,15 +75,18 @@ public class TestGraphics2 {
 
 		final GraphicObjectController goc = new GraphicObjectController(handler);
 
+
 		gpanel.addMouseListener(new MouseAdapter() {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
 				goc.setControlledObject(gpanel.getGraphicObjectAt(e.getPoint()));
 				System.out.println(("0: " + goc.getSubject()));
 			}
 		});
+		JButton deleteButton = new JButton(new DeleteObjectAction(PROBLEMA QUI,gpanel,handler));
+		deleteButton.setText("Delete");
+		toolbar.add(deleteButton);
 		deleteButton.addActionListener(evt -> gpanel.remove(goc.getSubject()));
 
 

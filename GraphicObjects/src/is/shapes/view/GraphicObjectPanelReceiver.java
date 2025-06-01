@@ -28,6 +28,8 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 	private final List<GraphicObject> objects = new LinkedList<>();
 
 
+
+
 	public GraphicObjectPanelReceiver() {
 		setBackground(Color.WHITE);
 	}

@@ -56,6 +56,7 @@ public class HistoryCommandHandlerInvoker implements CommandHandler {
 
 	private void addToHistory(Command cmd) {
 		history.addFirst(cmd);
+		System.out.println("added to "+ cmd);
 		if (history.size() > maxHistoryLength) {
 			history.removeLast();
 		}
