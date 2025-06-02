@@ -39,6 +39,7 @@ public class GraphicObjectController extends JPanel {
 	}
 
 	public GraphicObjectController(CommandHandler cmdH) {
+
 		this(null, cmdH);
 	}
 	public GraphicObject getSubject(){return subject;}
