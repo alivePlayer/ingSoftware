@@ -65,6 +65,10 @@ public final  class CircleObject extends AbstractGraphicObject {
 
 		return "Circle";
 	}
+	@Override
+	public String toString() {
+		return "CircleObject [position=" + position + ", radius=" + radius + "]";
+	}
 
 	public double getRadius() {
 		return radius;

@@ -24,7 +24,10 @@ public class DeleteConcreteCommand implements Command {
 
     @Override
     public boolean undoIt() {
+        if (go==null) System.out.println("go vuoto");
+        System.out.println("undoIt: "+go);
         panel.add(go);
+
         return true;
     }
 }

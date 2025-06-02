@@ -21,6 +21,7 @@ public interface GraphicObject {
 
 	void scale(double factor);
 
+
 	boolean contains(Point2D p);
 
 	String getType();

@@ -78,5 +78,9 @@ public final class ImageObject extends AbstractGraphicObject {
 
 		return "Image";
 	}
+	@Override
+	public String toString() {
+		return "ImageObject{" + "image=" + image + ", position=" + position + '}';
+	}
 
 }

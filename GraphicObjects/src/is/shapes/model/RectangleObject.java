@@ -49,6 +49,8 @@ public final class RectangleObject extends AbstractGraphicObject {
 		notifyListeners(new GraphicEvent(this));
 	}
 
+
+
 	@Override
 	public Dimension2D getDimension() {
 		Dimension2D d = new Dimension();
@@ -68,5 +70,9 @@ public final class RectangleObject extends AbstractGraphicObject {
 	public String getType() {
 
 		return "Rectangle";
+	}
+	@Override
+	public String toString() {
+		return "RectangleObject [position=" + position + ", dim=" + dim + "]";
 	}
 }

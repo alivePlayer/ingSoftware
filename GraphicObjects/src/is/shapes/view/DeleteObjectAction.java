@@ -12,20 +12,19 @@ import java.io.Serial;
 public class DeleteObjectAction extends AbstractAction {
     @Serial
     private static final long serialVersionUID = 254953548601413011L;
-    AbstractGraphicObject prototype;
+    GraphicObject go;
     GraphicObjectPanelReceiver panel;
     CommandHandler ch;
-    public DeleteObjectAction(AbstractGraphicObject prototype,
+    public DeleteObjectAction(GraphicObject prototype,
                               GraphicObjectPanelReceiver panel, CommandHandler ch) {
         super();
-        this.prototype = prototype;
+        this.go = prototype;
         this.panel = panel;
         this.ch = ch;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        GraphicObject go = prototype;
         ch.handle(new DeleteConcreteCommand(panel,go));
     }
 }
