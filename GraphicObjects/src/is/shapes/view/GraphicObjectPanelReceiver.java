@@ -9,8 +9,10 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JComponent;
 
@@ -26,6 +28,7 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 	 */
 
 	private final List<GraphicObject> objects = new LinkedList<>();
+	private Map<Integer,GraphicObject> objGlobal = new HashMap<Integer,GraphicObject>();
 
 
 
@@ -41,7 +44,10 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 
 	}
 
-	
+	public GraphicObject getObjGlobal(int id){
+		return objGlobal.get(id);
+	}
+
 	public GraphicObject getGraphicObjectAt(Point2D p) {
 		for (GraphicObject g : objects) {
 			if (g.contains(p))
@@ -81,6 +87,7 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 
 	public void add(GraphicObject go) {
 		objects.add(go);
+		objGlobal.put(go.getID(),go);
 		go.addGraphicObjectListener(this);
 		repaint();
 	}

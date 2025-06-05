@@ -28,7 +28,6 @@ public class CreateObjectAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		GraphicObject go = prototype.clone();
 		ch.handle(new NewObjectConcreteCommand(panel, go));
 

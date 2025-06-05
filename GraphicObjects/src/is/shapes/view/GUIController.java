@@ -68,7 +68,7 @@ public class GUIController {
         toolbar.add(imgButton);
 
         final GraphicObjectController goc = new GraphicObjectController(handler);
-        final CommandLine cl= new CommandLine(handler);
+        final CommandLine cl= new CommandLine(handler,gPanelReceiver);
 
 
         gPanelReceiver.addMouseListener(new MouseAdapter() {
@@ -76,7 +76,7 @@ public class GUIController {
             @Override
             public void mouseClicked(MouseEvent e) {
                 goc.setControlledObject(gPanelReceiver.getGraphicObjectAt(e.getPoint()));
-                System.out.println(("0: " + goc.getSubject()));
+                System.out.println((goc.getSubject().getID()+ " " + goc.getSubject()));
                 deleteButton.setAction(new DeleteObjectAction(goc.getSubject(),gPanelReceiver,handler));
                 deleteButton.setText("Delete");
 

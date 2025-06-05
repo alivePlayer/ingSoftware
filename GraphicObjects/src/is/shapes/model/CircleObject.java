@@ -9,15 +9,19 @@ public final  class CircleObject extends AbstractGraphicObject {
 	private Point2D position;
 
 	private double radius;
+	int IDobj;
 
 	public CircleObject(Point2D pos, double r) {
 		if (r <= 0)
 			throw new IllegalArgumentException();
 		position = new Point2D.Double(pos.getX(), pos.getY());
 		radius = r;
+		IDUpdater();
+		IDobj = this.IDGlobal;
+
 	}
 
-	
+
 
 	@Override
 	public void moveTo(Point2D p) {
@@ -73,4 +77,6 @@ public final  class CircleObject extends AbstractGraphicObject {
 	public double getRadius() {
 		return radius;
 	}
+
+	public int getID(){return IDobj;}
 }

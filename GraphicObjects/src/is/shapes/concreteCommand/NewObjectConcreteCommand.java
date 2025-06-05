@@ -1,6 +1,7 @@
 package is.shapes.concreteCommand;
 
 import is.command.Command;
+import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObject;
 import is.shapes.view.GraphicObjectPanelReceiver;
 
@@ -18,8 +19,9 @@ public class NewObjectConcreteCommand implements Command {
 
 	@Override
 	public boolean doIt() {
-		double x = 10;
-		double y =  10;
+		double x = go.getPosition().getX();
+		double y =  go.getPosition().getY();
+
 		go.moveTo(x, y);
 		panel.add(go);
 

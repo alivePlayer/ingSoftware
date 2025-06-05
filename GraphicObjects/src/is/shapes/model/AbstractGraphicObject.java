@@ -1,12 +1,14 @@
 package is.shapes.model;
 
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public abstract class AbstractGraphicObject implements GraphicObject, Cloneable {
 
 	private  List<GraphicObjectListener> listeners = new LinkedList<>();
+
+	static int IDGlobal=0;
+
 
 	@Override
 	public void addGraphicObjectListener(GraphicObjectListener l) {
@@ -41,5 +43,9 @@ public abstract class AbstractGraphicObject implements GraphicObject, Cloneable 
 			throw new Error(e);
 		}
 	}
+
+	public synchronized  void IDUpdater(){IDGlobal++;}
+
+
 
 }

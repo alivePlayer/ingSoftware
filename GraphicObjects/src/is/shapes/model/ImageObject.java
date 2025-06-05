@@ -14,6 +14,8 @@ public final class ImageObject extends AbstractGraphicObject {
 
 	private Point2D position;
 
+	int IDobj;
+
 	public Image getImage() {
 		return image;
 	}
@@ -21,6 +23,9 @@ public final class ImageObject extends AbstractGraphicObject {
 	public ImageObject(ImageIcon img, Point2D pos) {
 		position = new Point2D.Double(pos.getX(), pos.getY());
 		image = img.getImage();
+		IDUpdater();
+		IDobj=this.IDGlobal;
+
 	}
 
 	@Override
@@ -82,5 +87,6 @@ public final class ImageObject extends AbstractGraphicObject {
 	public String toString() {
 		return "ImageObject{" + "image=" + image + ", position=" + position + '}';
 	}
+	public int getID(){return IDobj;}
 
 }

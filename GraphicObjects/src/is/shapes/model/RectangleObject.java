@@ -10,12 +10,16 @@ public final class RectangleObject extends AbstractGraphicObject {
 
 	private Dimension2D dim;
 
+	int IDobj;
+
 	public RectangleObject(Point2D pos, double w, double h) {
 		if (w <= 0 || h <= 0)
 			throw new IllegalArgumentException();
 		dim = new Dimension();
 		dim.setSize(w, h);
 		position = new Point2D.Double(pos.getX(), pos.getY());
+		IDUpdater();
+		IDobj=this.IDGlobal;
 
 	}
 
@@ -75,4 +79,6 @@ public final class RectangleObject extends AbstractGraphicObject {
 	public String toString() {
 		return "RectangleObject [position=" + position + ", dim=" + dim + "]";
 	}
+
+	public int getID(){return IDobj;}
 }
