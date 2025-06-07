@@ -19,6 +19,7 @@ public class CommandLine extends JTextField{
     GraphicObjectPanelReceiver panel;
     JTextField jtf;
     CommandLineAction cla;
+    String s="";
 
     public CommandLine(CommandHandler ch,GraphicObjectPanelReceiver f){
         super(50);
@@ -36,8 +37,16 @@ public class CommandLine extends JTextField{
             public void keyPressed(KeyEvent e) {
                 if(e.getKeyCode()==KeyEvent.VK_ENTER){
                     StringTokenizer st=getString();
-                    if(!cla.commandChoser(st))
-                        new ErrorWindow().setVisible(true);
+                    int action=cla.commandChoser(st);
+                    if(action==-1) new ErrorWindow().setVisible(true);
+
+                    else if(action==404040) new DeleteWindow().setVisible(true);
+
+                    else if(action==505050) s="non devo fare niente quando zoommo";
+
+                    else{
+                        new addWindow(action).setVisible(true);
+                    }
                 }
             }
 

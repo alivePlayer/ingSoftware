@@ -77,7 +77,7 @@ public final class RectangleObject extends AbstractGraphicObject {
 	}
 	@Override
 	public String toString() {
-		return "RectangleObject [position=" + position + ", dim=" + dim + "]";
+		return "RectangleObject"+"ID="+IDobj+" [ position=" + position + ", dim=" + dim + "]";
 	}
 
 	public int getID(){return IDobj;}

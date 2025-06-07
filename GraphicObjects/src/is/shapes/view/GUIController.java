@@ -10,6 +10,7 @@ import is.shapes.model.RectangleObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -35,6 +36,8 @@ public class GUIController {
 
         gPanelReceiver.setPreferredSize(new Dimension(400, 400));
 
+        final CommandLine cl= new CommandLine(handler,gPanelReceiver);
+
         GraphicObjectViewFactory.FACTORY.installView(RectangleObject.class, new RectangleObjectView());
         GraphicObjectViewFactory.FACTORY.installView(CircleObject.class, new CircleObjectView());
         GraphicObjectViewFactory.FACTORY.installView(ImageObject.class, new ImageObjectView());
@@ -45,30 +48,58 @@ public class GUIController {
         JButton deleteButton = new JButton(new DeleteObjectAction(go,gPanelReceiver,handler));
         deleteButton.setText("Delete");
         toolbar.add(deleteButton);
+//RECTANGLE CREATE
 
-        JButton rectButton = new JButton(new CreateObjectAction(go, gPanelReceiver, handler));
+        JButton rectButton = new JButton(new CreateObjectAction(go,gPanelReceiver,handler));
         rectButton.setText(go.getType());
         toolbar.add(rectButton);
+        rectButton.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AbstractGraphicObject ago = new RectangleObject(new Point(180, 80), 20, 50);
+                rectButton.setAction(new CreateObjectAction(ago,gPanelReceiver,handler));
+                rectButton.setText(ago.getType());
+
+            }
+        });
+//CIRCLE CREATE
 
         go = new CircleObject(new Point(200, 100), 10);
         JButton circButton = new JButton(new CreateObjectAction(go, gPanelReceiver, handler));
         circButton.setText(go.getType());
         toolbar.add(circButton);
+        circButton.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AbstractGraphicObject ago = new CircleObject(new Point(200, 100), 10);
+                circButton.setAction(new CreateObjectAction(ago,gPanelReceiver,handler));
+                circButton.setText(ago.getType());
 
-        go = new CircleObject(new Point(200, 100), 100);
-        JButton circButton2 = new JButton(new CreateObjectAction(go, gPanelReceiver, handler));
-        circButton2.setText("big " + go.getType());
-        toolbar.add(circButton2);
+            }
+        });
 
+//IMG CREATE
         go = new ImageObject(new ImageIcon(TestGraphics2.class.getResource("shapes/model/NyaNya.gif")),
                 new Point(240, 187));
+
 
         JButton imgButton = new JButton(new CreateObjectAction(go, gPanelReceiver, handler));
         imgButton.setText(go.getType());
         toolbar.add(imgButton);
+        imgButton.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AbstractGraphicObject ago= new ImageObject(new ImageIcon(TestGraphics2.class.getResource("shapes/model/NyaNya.gif")),
+                        new Point(240, 187));
+                imgButton.setAction(new CreateObjectAction(ago,gPanelReceiver,handler));
+                imgButton.setText(ago.getType());
+
+            }
+        });
+
 
         final GraphicObjectController goc = new GraphicObjectController(handler);
-        final CommandLine cl= new CommandLine(handler,gPanelReceiver);
+
 
 
         gPanelReceiver.addMouseListener(new MouseAdapter() {
@@ -79,6 +110,7 @@ public class GUIController {
                 System.out.println((goc.getSubject().getID()+ " " + goc.getSubject()));
                 deleteButton.setAction(new DeleteObjectAction(goc.getSubject(),gPanelReceiver,handler));
                 deleteButton.setText("Delete");
+                new clickedWindow(goc.getSubject()).setVisible(true);
 
             }
         });
