@@ -9,10 +9,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.swing.JComponent;
 
@@ -43,7 +40,20 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 		revalidate();
 
 	}
-
+	public ArrayList<GraphicObject> getObjectsGlobal(String val) {
+		ArrayList<GraphicObject> ret = new ArrayList<GraphicObject>();
+		if("all".equals(val.toLowerCase())) {
+			for (Integer i: objGlobal.keySet()) {
+				ret.add(objGlobal.get(i));
+			}
+			return ret;
+		}
+		for (int i=0;i<objects.size();i++) {
+			if(objects.get(i).getType().toLowerCase().equals(val))
+				ret.add(objects.get(i));
+		}
+		return ret;
+	}
 	public GraphicObject getObjGlobal(int id){
 		return objGlobal.get(id);
 	}
@@ -94,6 +104,7 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 
 	public void remove(GraphicObject go) {
 		if (objects.remove(go)) {
+			objGlobal.remove(go.getID());
 			go.removeGraphicObjectListener(this);
 			repaint();
 		}

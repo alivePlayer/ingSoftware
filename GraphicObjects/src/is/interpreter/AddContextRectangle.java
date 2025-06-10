@@ -3,12 +3,13 @@ package is.interpreter;
 import is.shapes.concreteCommand.NewObjectConcreteCommand;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.CircleObject;
+import is.shapes.model.RectangleObject;
 
 import java.awt.*;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 
-public class AddContextCircle implements Expression{
+public class AddContextRectangle implements Expression{
     @Override
     public int interpret(Context context) {
         StringTokenizer st= context.st;
@@ -16,23 +17,21 @@ public class AddContextCircle implements Expression{
             return addPersonalizzata(st,context);
         else return addStandard(st,context);
     }
-
     private int addPersonalizzata(StringTokenizer st,Context context) {
-            try {
-                int x = Integer.parseInt(st.nextToken());
-                int y = Integer.parseInt(st.nextToken());
-                double raggio = Integer.parseInt(st.nextToken());
-                AbstractGraphicObject obj = new CircleObject(new Point(x, y), raggio);
-                context.handler.handle(new NewObjectConcreteCommand(context.panel, obj));
-                return obj.getID();
-            } catch (NoSuchElementException | NumberFormatException e) {
-                return -1;
-            }
+        try {
+            AbstractGraphicObject obj = new RectangleObject(new Point(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())),
+                    Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+            context.handler.handle(new NewObjectConcreteCommand(context.panel, obj));
+
+            return obj.getID();
+        }catch(NoSuchElementException | NumberFormatException e) {
+            return -1;
+        }
 
 
     }
     private int addStandard(StringTokenizer st,Context context){
-        AbstractGraphicObject obj= new CircleObject(new Point(200, 100), 10);
+        AbstractGraphicObject obj= new RectangleObject(new Point(200, 100), 10,20);
         context.handler.handle(new NewObjectConcreteCommand(context.panel, obj));
         return obj.getID();
     }

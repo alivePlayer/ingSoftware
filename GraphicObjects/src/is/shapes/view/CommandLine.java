@@ -42,7 +42,7 @@ public class CommandLine extends JTextField{
 
                     else if(action==404040) new DeleteWindow().setVisible(true);
 
-                    else if(action==505050) s="non devo fare niente quando zoommo";
+                    else if(action==505050) s="non devo fare niente quando richiamo questo codice";
 
                     else{
                         new addWindow(action).setVisible(true);
