@@ -29,6 +29,10 @@ public class CommandParser {
                 return new PerimetroContext();
             case "ls":
                 return new lsContext();
+            case "grp":
+                return new GrpContext();
+            case "ungrp":
+                return new UngrpContext();
             default:
                 return null;
         }

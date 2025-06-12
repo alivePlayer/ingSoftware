@@ -27,6 +27,9 @@ public class lsContext implements Expression {
                 case "image":
                     expr = new lsImageContext();
                     break;
+                case "gruppi":
+                    expr= new lsGruppiContext();
+                    break;
                 case "all":
                     expr = new lsAllContext();
                     break;

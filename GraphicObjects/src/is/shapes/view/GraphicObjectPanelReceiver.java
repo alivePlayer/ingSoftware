@@ -3,6 +3,7 @@ package is.shapes.view;
 import is.shapes.model.GraphicEvent;
 import is.shapes.model.GraphicObject;
 import is.shapes.model.GraphicObjectListener;
+import is.shapes.model.Gruppo;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -26,6 +27,7 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 
 	private final List<GraphicObject> objects = new LinkedList<>();
 	private Map<Integer,GraphicObject> objGlobal = new HashMap<Integer,GraphicObject>();
+	List <Gruppo> gruppi=new ArrayList<>();
 
 
 
@@ -34,26 +36,45 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 		setBackground(Color.WHITE);
 	}
 
+	public int GetGruppiOccupati(){
+		return gruppi.size()+1;
+	}
 	@Override
 	public void graphicChanged(GraphicEvent e) {
 		repaint();
 		revalidate();
 
 	}
+	public Gruppo getGruppo(int id){
+		return gruppi.get(id-1);
+	}
 	public ArrayList<GraphicObject> getObjectsGlobal(String val) {
 		ArrayList<GraphicObject> ret = new ArrayList<GraphicObject>();
-		if("all".equals(val.toLowerCase())) {
+		if(val.toLowerCase().equals("all")) {
 			for (Integer i: objGlobal.keySet()) {
 				ret.add(objGlobal.get(i));
 			}
+			for(Gruppo g: gruppi) {
+				ret.add(g);
+			}
 			return ret;
 		}
+
+		else if(val.toLowerCase().equals("gruppi")) {
+			for(Gruppo g: gruppi) {
+				ret.add(g);
+			}
+			return ret;
+		}
+
 		for (int i=0;i<objects.size();i++) {
 			if(objects.get(i).getType().toLowerCase().equals(val))
 				ret.add(objects.get(i));
 		}
 		return ret;
 	}
+
+
 	public GraphicObject getObjGlobal(int id){
 		return objGlobal.get(id);
 	}
@@ -94,7 +115,9 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 		}
 
 	}
-
+	public void add(Gruppo g){
+		gruppi.add(g);
+	}
 	public void add(GraphicObject go) {
 		objects.add(go);
 		objGlobal.put(go.getID(),go);
@@ -102,6 +125,9 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 		repaint();
 	}
 
+	public void remove(Gruppo g){
+		gruppi.remove(g);
+	}
 	public void remove(GraphicObject go) {
 		if (objects.remove(go)) {
 			objGlobal.remove(go.getID());

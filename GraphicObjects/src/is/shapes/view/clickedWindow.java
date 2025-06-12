@@ -39,32 +39,43 @@ public class clickedWindow extends JFrame {
             Font font = new Font("Arial", Font.BOLD, 20);
             g.setFont(font);
 
-            // Ottieni le metriche del font una sola volta
             FontMetrics fm = g.getFontMetrics();
             int lineHeight = fm.getHeight();
 
-            // Preparazione del testo
-            String[] lines;
+            int x = 10; // margine sinistro
+            int y = 30; // margine superiore
+            int maxWidth = getWidth() - 20; // larghezza disponibile per il testo
+
             if (!oggetti.isEmpty()) {
-                lines = new String[oggetti.size()];
-                int i = 0;
                 for (GraphicObject oggetto : oggetti) {
-                    lines[i++] = oggetto.toString();
+                    String testo = oggetto.toString();
+                    String[] words = testo.split(" ");
+                    StringBuilder line = new StringBuilder();
+
+                    for (String word : words) {
+                        String testLine = line + word + " ";
+                        int lineWidth = fm.stringWidth(testLine);
+                        if (lineWidth > maxWidth) {
+                            // Stampa la riga e vai a capo
+                            g.drawString(line.toString(), x, y);
+                            y += lineHeight;
+                            line = new StringBuilder(word + " ");
+                        } else {
+                            line.append(word).append(" ");
+                        }
+                    }
+
+                    // Stampa l'ultima riga
+                    if (!line.isEmpty()) {
+                        g.drawString(line.toString(), x, y);
+                        y += lineHeight;
+                    }
+
+                    // Aggiungi una riga vuota tra gli oggetti
+                    y += lineHeight;
                 }
             } else {
-                lines = new String[]{oggetto.toString()};
-            }
-
-            // Calcola la posizione Y iniziale (centrata verticalmente)
-            int totalTextHeight = lines.length * lineHeight;
-            int y = (getHeight() - totalTextHeight) / 2 + fm.getAscent();
-
-            // Disegna ogni riga centrata orizzontalmente
-            for (String line : lines) {
-                int textWidth = fm.stringWidth(line);
-                int x = (getWidth() - textWidth) / 2;
-                g.drawString(line, x, y);
-                y += lineHeight; // Vai alla riga successiva
+                g.drawString(oggetto.toString(), x, y);
             }
         }
     }
