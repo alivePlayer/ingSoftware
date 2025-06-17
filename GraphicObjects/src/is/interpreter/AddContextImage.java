@@ -20,7 +20,8 @@ public class AddContextImage implements Expression{
     }
     private int addPersonalizzata(StringTokenizer st,Context context) {
         try{
-            AbstractGraphicObject obj=new ImageObject(new ImageIcon(TestGraphics2.class.getResource(st.nextToken())),new Point(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())));
+            String file="C:\\Users\\UTENTE\\Desktop\\WS INGS\\imgs\\"+st.nextToken()+".png";
+            AbstractGraphicObject obj=new ImageObject(new ImageIcon(file),new Point(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())));
             context.handler.handle(new NewObjectConcreteCommand(context.panel, obj));
             return obj.getID();
         }catch(NoSuchElementException | NumberFormatException e) {
@@ -30,7 +31,7 @@ public class AddContextImage implements Expression{
 
     }
     private int addStandard(StringTokenizer st,Context context){
-        AbstractGraphicObject obj= new ImageObject(new ImageIcon(TestGraphics2.class.getResource("shapes/model/NyaNya.gif")),
+        AbstractGraphicObject obj= new ImageObject(new ImageIcon("C:\\Users\\UTENTE\\Desktop\\WS INGS\\imgs\\NyaNya.png"),
                 new Point(240, 187));
         context.handler.handle(new NewObjectConcreteCommand(context.panel, obj));
         return obj.getID();

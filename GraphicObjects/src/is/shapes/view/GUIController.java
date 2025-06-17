@@ -79,7 +79,7 @@ public class GUIController {
         });
 
 //IMG CREATE
-        go = new ImageObject(new ImageIcon(TestGraphics2.class.getResource("shapes/model/NyaNya.gif")),
+        go = new ImageObject(new ImageIcon("C:\\Users\\UTENTE\\Desktop\\WS INGS\\imgs\\NyaNya.gif"),
                 new Point(240, 187));
 
 
@@ -89,7 +89,7 @@ public class GUIController {
         imgButton.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AbstractGraphicObject ago= new ImageObject(new ImageIcon(TestGraphics2.class.getResource("shapes/model/NyaNya.gif")),
+                AbstractGraphicObject ago= new ImageObject(new ImageIcon("C:\\Users\\UTENTE\\Desktop\\WS INGS\\imgs\\NyaNya.gif"),
                         new Point(240, 187));
                 imgButton.setAction(new CreateObjectAction(ago,gPanelReceiver,handler));
                 imgButton.setText(ago.getType());

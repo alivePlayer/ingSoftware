@@ -1,12 +1,15 @@
 package is.interpreter;
 
+import is.shapes.concreteCommand.UngrpConcreteCommand;
 import is.shapes.model.Composite;
+import is.shapes.model.Gruppo;
 
 public class UngrpContext implements Expression{
+    Composite co=new Composite();
     @Override
     public int interpret(Context context) {
-        Composite ce=new Composite();
-        ce.remove(context);
+        Gruppo gr=co.create(context);
+        context.handler.handle(new UngrpConcreteCommand(context.panel,gr));
         return 505050;
     }
 }

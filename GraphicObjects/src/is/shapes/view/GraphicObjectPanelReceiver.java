@@ -39,6 +39,9 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 	public int GetGruppiOccupati(){
 		return gruppi.size()+1;
 	}
+	public Map<Integer,GraphicObject> getObjects() {
+		return objGlobal;
+	}
 	@Override
 	public void graphicChanged(GraphicEvent e) {
 		repaint();

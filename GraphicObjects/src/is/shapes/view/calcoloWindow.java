@@ -10,6 +10,16 @@ public class calcoloWindow extends JFrame {
     private GraphicObject oggetto;
     double risultato;
     String tipo;
+    private PannelloAll pannelloAll;
+    public calcoloWindow(String tutti,double risultato,String tipo) {
+        setTitle("Controllo oggetto");
+        setSize(900, 700);
+        setLocation(0,0);
+        add(pannelloAll = new PannelloAll());
+        pannelloAll.setVisible(true);
+        this.risultato=risultato;
+        this.tipo=tipo;
+    }
     public calcoloWindow(GraphicObject go,double risultato,String tipo) {
         setTitle("Controllo oggetto");
         setSize(900, 700);
@@ -29,6 +39,26 @@ public class calcoloWindow extends JFrame {
             Font font = new Font("Arial", Font.BOLD, 20);
             g.setFont(font);
             String messaggio="oggetto con id: "+oggetto.getID()+" calcolata "+tipo+"="+risultato;
+            FontMetrics fm = g.getFontMetrics(font);
+            int textWidth = fm.stringWidth(messaggio);
+            int textHeight = fm.getHeight();
+
+
+            int x = (getWidth() - textWidth) / 2;
+            int y = (getHeight() - textHeight) / 2 + fm.getAscent();
+
+            g.drawString(messaggio, x, y);
+        }
+    }
+
+    private class PannelloAll extends JPanel {
+        public void paint(Graphics g) {
+            super.paint(g);
+            setBackground(Color.WHITE);
+            g.setColor(Color.BLACK);
+            Font font = new Font("Arial", Font.BOLD, 20);
+            g.setFont(font);
+            String messaggio="calcolo "+tipo+"di tutti gli oggetti="+risultato;
             FontMetrics fm = g.getFontMetrics(font);
             int textWidth = fm.stringWidth(messaggio);
             int textHeight = fm.getHeight();
