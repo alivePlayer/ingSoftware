@@ -20,7 +20,7 @@ public class AddContextImage implements Expression{
     }
     private int addPersonalizzata(StringTokenizer st,Context context) {
         try{
-            String file="C:\\Users\\UTENTE\\Desktop\\WS INGS\\imgs\\"+st.nextToken()+".png";
+            String file="C:\\Users\\UTENTE\\Desktop\\WS INGS\\ingsoftware\\imgs\\"+st.nextToken()+".png";
             if(st.hasMoreTokens()) {
                 AbstractGraphicObject obj = new ImageObject(new ImageIcon(file), new Point(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
                 context.handler.handle(new NewObjectConcreteCommand(context.panel, obj));
@@ -36,7 +36,7 @@ public class AddContextImage implements Expression{
 
     }
     private int addStandard(StringTokenizer st,Context context){
-        String file="C:\\Users\\UTENTE\\Desktop\\WS INGS\\imgs\\NyaNya.gif";
+        String file="C:\\Users\\UTENTE\\Desktop\\WS INGS\\ingsoftware\\imgs\\NyaNya.gif";
         AbstractGraphicObject obj= new ImageObject(new ImageIcon(file), new Point(240, 187));
         context.handler.handle(new NewObjectConcreteCommand(context.panel, obj));
         return obj.getID();
