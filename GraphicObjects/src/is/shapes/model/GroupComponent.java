@@ -1,6 +1,6 @@
 package is.shapes.model;
 
-import is.interpreter.Context;
+import is.shapes.controller.interpreter.Context;
 
 public interface GroupComponent {
     Gruppo create(Context context);

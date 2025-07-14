@@ -42,7 +42,9 @@ public class GraphicObjectController extends JPanel {
 
 		this(null, cmdH);
 	}
-	public GraphicObject getSubject(){return subject;}
+	public GraphicObject getSubject() throws NullPointerException{
+			return subject;
+	}
 
 	public GraphicObjectController(GraphicObject go, CommandHandler cmdH) {
 		cmdHandler = cmdH;

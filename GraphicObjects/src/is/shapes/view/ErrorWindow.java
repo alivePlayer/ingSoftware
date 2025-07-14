@@ -21,7 +21,7 @@ public class ErrorWindow extends JFrame {
             g.setColor(Color.RED);
             Font font = new Font("Arial", Font.BOLD, 20);
             g.setFont(font);
-            String messaggio="ERRORE, COMANDO INESISTENTE O LINEA VUOTA!";
+            String messaggio="ERRORE,COMANDO INESISTENTE O INUTILIZZABILE!";
             FontMetrics fm = g.getFontMetrics(font);
             int textWidth = fm.stringWidth(messaggio);
             int textHeight = fm.getHeight();

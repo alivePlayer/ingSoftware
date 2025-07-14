@@ -87,6 +87,6 @@ public final class ImageObject extends AbstractGraphicObject {
 	public String toString() {
 		return "ImageObject{"+"ID="+IDobj + "image=" + image + ", position=" + position + '}';
 	}
-	public int getID(){return IDobj;}
+	public int getID() {return IDobj;}
 
 }

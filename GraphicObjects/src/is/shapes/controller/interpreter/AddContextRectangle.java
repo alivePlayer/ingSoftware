@@ -1,8 +1,7 @@
-package is.interpreter;
+package is.shapes.controller.interpreter;
 
 import is.shapes.concreteCommand.NewObjectConcreteCommand;
 import is.shapes.model.AbstractGraphicObject;
-import is.shapes.model.CircleObject;
 import is.shapes.model.RectangleObject;
 
 import java.awt.*;

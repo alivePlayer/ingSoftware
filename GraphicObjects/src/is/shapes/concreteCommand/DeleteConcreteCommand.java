@@ -25,9 +25,11 @@ public class DeleteConcreteCommand implements Command {
     @Override
     public boolean doIt() {
         if(scelta ==0 ){
+            if(panel.getGrpNum()==0) return false;
             for(int i=0;i< gruppo.getSize();i++)
                 panel.remove(gruppo.getContenuto(i));
             panel.remove(gruppo);
+            panel.setGrpNum(panel.getGrpNum()-1);
         }
         else{
             panel.remove(go);
@@ -41,6 +43,7 @@ public class DeleteConcreteCommand implements Command {
             for(int i=0;i< gruppo.getSize();i++)
                 panel.add(gruppo.getContenuto(i));
             panel.add(gruppo);
+            panel.setGrpNum(panel.getGrpNum()+1);
         }
         else {
             panel.add(go);

@@ -1,4 +1,4 @@
-package is.interpreter;
+package is.shapes.controller.interpreter;
 
 import is.shapes.concreteCommand.MoveConcreteCommand;
 import is.shapes.controller.GraphicObjectController;
@@ -7,7 +7,6 @@ import is.shapes.model.Gruppo;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 

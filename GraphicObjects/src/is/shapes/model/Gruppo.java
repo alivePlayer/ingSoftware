@@ -1,7 +1,6 @@
 package is.shapes.model;
 
-import is.interpreter.Context;
-import is.shapes.view.GraphicObjectPanelReceiver;
+import is.shapes.controller.interpreter.Context;
 
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
@@ -21,6 +20,7 @@ public class Gruppo extends AbstractGraphicObject{//sarebbe quindi questa la mia
         return figli.get(posizione);
     }
     public int getSize(){
+        if(figli.size()<=0) return 0;
         return figli.size();
     }
     public void add(GraphicObject go){

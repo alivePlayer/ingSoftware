@@ -1,6 +1,5 @@
 package is.shapes.view;
 
-import is.TestGraphics2;
 import is.command.HistoryCommandHandlerInvoker;
 import is.shapes.controller.GraphicObjectController;
 import is.shapes.model.AbstractGraphicObject;

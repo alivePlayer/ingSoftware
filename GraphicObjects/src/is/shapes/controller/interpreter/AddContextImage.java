@@ -1,6 +1,5 @@
-package is.interpreter;
+package is.shapes.controller.interpreter;
 
-import is.TestGraphics2;
 import is.shapes.concreteCommand.NewObjectConcreteCommand;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.ImageObject;
@@ -14,14 +13,20 @@ public class AddContextImage implements Expression{
     @Override
     public int interpret(Context context) {
         StringTokenizer st= context.st;
-        if(st.countTokens()>1)
+        int val=st.countTokens();
+        if(st.countTokens()>=1)
             return addPersonalizzata(st,context);
         else return addStandard(st,context);
     }
     private int addPersonalizzata(StringTokenizer st,Context context) {
         try{
             String file="C:\\Users\\UTENTE\\Desktop\\WS INGS\\imgs\\"+st.nextToken()+".png";
-            AbstractGraphicObject obj=new ImageObject(new ImageIcon(file),new Point(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())));
+            if(st.hasMoreTokens()) {
+                AbstractGraphicObject obj = new ImageObject(new ImageIcon(file), new Point(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
+                context.handler.handle(new NewObjectConcreteCommand(context.panel, obj));
+                return obj.getID();
+            }
+            AbstractGraphicObject obj = new ImageObject(new ImageIcon(file), new Point(240, 187));
             context.handler.handle(new NewObjectConcreteCommand(context.panel, obj));
             return obj.getID();
         }catch(NoSuchElementException | NumberFormatException e) {
@@ -31,8 +36,8 @@ public class AddContextImage implements Expression{
 
     }
     private int addStandard(StringTokenizer st,Context context){
-        AbstractGraphicObject obj= new ImageObject(new ImageIcon("C:\\Users\\UTENTE\\Desktop\\WS INGS\\imgs\\NyaNya.png"),
-                new Point(240, 187));
+        String file="C:\\Users\\UTENTE\\Desktop\\WS INGS\\imgs\\NyaNya.gif";
+        AbstractGraphicObject obj= new ImageObject(new ImageIcon(file), new Point(240, 187));
         context.handler.handle(new NewObjectConcreteCommand(context.panel, obj));
         return obj.getID();
     }

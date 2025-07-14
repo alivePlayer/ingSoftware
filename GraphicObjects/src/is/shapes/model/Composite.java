@@ -1,6 +1,7 @@
 package is.shapes.model;
 
-import is.interpreter.Context;
+import is.shapes.controller.interpreter.Context;
+import is.shapes.view.ErrorWindow;
 
 public class Composite implements GroupComponent{
     Gruppo gr;
@@ -11,10 +12,15 @@ public class Composite implements GroupComponent{
             String token=context.st.nextToken();
             System.out.println(token);
             if(token.charAt(0)=='0'){
-                Gruppo gruppoInterno= context.panel.getGruppo(Integer.parseInt(token));
-                for(int i=0;i<gruppoInterno.getSize();i++) {
-                    System.out.println(gruppoInterno.getContenuto(i));
-                    gr.add(gruppoInterno.getContenuto(i));
+                Gruppo gruppoInterno = context.panel.getGruppo(Integer.parseInt(token));
+                try {
+                    for (int i = 0; i < gruppoInterno.getSize(); i++) {
+                        System.out.println(gruppoInterno.getContenuto(i));
+                        gr.add(gruppoInterno.getContenuto(i));
+                    }
+                }catch(NullPointerException e){
+                    new ErrorWindow().setVisible(true);
+                    return null;
                 }
             }
             else {

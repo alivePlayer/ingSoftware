@@ -1,6 +1,4 @@
-package is.interpreter;
-
-import is.shapes.concreteCommand.ZoomConcreteCommand;
+package is.shapes.controller.interpreter;
 
 import java.util.StringTokenizer;
 

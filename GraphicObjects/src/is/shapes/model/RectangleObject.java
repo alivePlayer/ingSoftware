@@ -80,5 +80,5 @@ public final class RectangleObject extends AbstractGraphicObject {
 		return "RectangleObject"+"ID="+IDobj+" [ position=" + position + ", dim=" + dim + "]";
 	}
 
-	public int getID(){return IDobj;}
+	public int getID() {return IDobj;}
 }

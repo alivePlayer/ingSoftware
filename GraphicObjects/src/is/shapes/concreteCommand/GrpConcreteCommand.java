@@ -16,12 +16,14 @@ public class GrpConcreteCommand implements Command {
     @Override
     public boolean doIt() {
         panel.add(gruppo);
+        panel.setGrpNum(panel.getGrpNum()+1);
         return true;
     }
 
     @Override
     public boolean undoIt() {
         panel.remove(gruppo);
+        panel.setGrpNum(panel.getGrpNum()-1);
         return true;
     }
 }

@@ -27,6 +27,7 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 
 	private final List<GraphicObject> objects = new LinkedList<>();
 	private Map<Integer,GraphicObject> objGlobal = new HashMap<Integer,GraphicObject>();
+	private int grpNum = 0;
 	List <Gruppo> gruppi=new ArrayList<>();
 
 
@@ -36,6 +37,14 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 		setBackground(Color.WHITE);
 	}
 
+
+	public int getGrpNum() {
+		return grpNum;
+	}
+	public void setGrpNum(int grpNum) {
+		this.grpNum = grpNum;
+		if(grpNum<0) this.grpNum=0;
+	}
 	public int GetGruppiOccupati(){
 		return gruppi.size()+1;
 	}
@@ -49,7 +58,11 @@ public class GraphicObjectPanelReceiver extends JComponent implements GraphicObj
 
 	}
 	public Gruppo getGruppo(int id){
-		return gruppi.get(id-1);
+		try {
+			return gruppi.get(id - 1);
+		}catch(IndexOutOfBoundsException  | NullPointerException e){
+			return null;
+		}
 	}
 	public ArrayList<GraphicObject> getObjectsGlobal(String val) {
 		ArrayList<GraphicObject> ret = new ArrayList<GraphicObject>();

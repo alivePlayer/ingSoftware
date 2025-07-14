@@ -1,7 +1,7 @@
 package is.shapes.view;
 
-import is.interpreter.Context;
-import is.interpreter.Expression;
+import is.shapes.controller.interpreter.Context;
+import is.shapes.controller.interpreter.Expression;
 
 public class lsImageContext implements Expression {
     @Override

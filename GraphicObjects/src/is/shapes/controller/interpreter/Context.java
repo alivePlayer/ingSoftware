@@ -1,4 +1,4 @@
-package is.interpreter;
+package is.shapes.controller.interpreter;
 
 import is.command.CommandHandler;
 import is.shapes.view.GraphicObjectPanelReceiver;

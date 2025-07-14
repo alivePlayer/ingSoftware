@@ -1,4 +1,4 @@
-package is.interpreter;
+package is.shapes.controller.interpreter;
 
 import is.shapes.concreteCommand.MoveConcreteCommand;
 import is.shapes.controller.GraphicObjectController;

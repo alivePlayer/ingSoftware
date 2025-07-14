@@ -1,9 +1,9 @@
 package is.shapes.view;
 
 import is.command.CommandHandler;
-import is.interpreter.CommandParser;
-import is.interpreter.Context;
-import is.interpreter.Expression;
+import is.shapes.controller.interpreter.CommandParser;
+import is.shapes.controller.interpreter.Context;
+import is.shapes.controller.interpreter.Expression;
 import java.util.StringTokenizer;
 
 

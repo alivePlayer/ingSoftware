@@ -78,5 +78,5 @@ public final  class CircleObject extends AbstractGraphicObject {
 		return radius;
 	}
 
-	public int getID(){return IDobj;}
+	public int getID() {return IDobj;}
 }
